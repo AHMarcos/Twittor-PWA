@@ -1,8 +1,19 @@
 
+
+
+var url = window.location.href;
+var swLocation = '/Twittor-PWA/sw.js';
+
 // Validamos y Creamos un Service Worker
 
 if (navigator.serviceWorker) {
-    navigator.serviceWorker.register('/sw.js');
+
+
+    if (url.includes('localhost')) {
+        swLocation = '/sw.js';
+    }
+
+    navigator.serviceWorker.register(swLocation);
 }
 
 
